@@ -5,63 +5,59 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gonolive <gonolive@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/19 18:13:59 by gonolive          #+#    #+#             */
-/*   Updated: 2024/07/19 18:35:02 by gonolive         ###   ########.fr       */
+/*   Created: 2024/07/25 13:18:15 by gonolive          #+#    #+#             */
+/*   Updated: 2024/07/25 13:35:45 by gonolive         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 char	*ft_itoa(int nbr)
 {
-	int		n;
 	int		len;
-	int		i;
-	char	*str;
+	int		n;
 	char	c;
+	char	*res;
 
-	n = nbr;
 	len = 0;
-	if (nbr == 0)
-	{
-		len++;
-	}
-	if (nbr < 0)
+	n = nbr;
+	if (n < 0)
 	{
 		len++;
 		n = -n;
+	}
+	if (n == 0)
+	{
+		len++;
 	}
 	while (n > 0)
 	{
 		n = n / 10;
 		len++;
 	}
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (!str)
+	res = (char *)malloc(sizeof(char) * (len + 1));
+	if (!res)
 	{
 		return (NULL);
 	}
 	if (nbr == 0)
 	{
-		str[0] = '0';
-		str[1] = '\0';
-		return (str);
+		res[0] = '0';
+		res[1] = '\0';
+		return (res);
 	}
 	if (nbr < 0)
 	{
-		str[0] = '-';
+		res[0] = '-';
 		nbr = -nbr;
 	}
-	str[len] = '\0';
-	len--;
 	while (nbr > 0)
 	{
-		i = nbr % 10;
-		c = i + '0';
-		str[len] = c;
-		len--;
+		n = nbr % 10;
+		c = n + '0';
+		res[--len] = c;
 		nbr = nbr / 10;
 	}
-	return (str);
+	return (res);
 }
