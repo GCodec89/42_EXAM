@@ -6,7 +6,7 @@
 /*   By: gonolive <gonolive@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 14:44:03 by gonolive          #+#    #+#             */
-/*   Updated: 2024/07/19 15:19:52 by gonolive         ###   ########.fr       */
+/*   Updated: 2024/07/26 13:16:37 by gonolive         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	**ft_split(char *str)
 		{
 			i++;
 		}
-		split[k][j] = '\0';
+		split[k][j] = (char *) '\0';
 		k++;
 	}
 	split[k] = '\0';
